@@ -1,0 +1,9 @@
+.PlaceList_item {
+  margin: 0 25px;
+  padding: 15px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.PlaceList_item:last-child {
+  border-bottom: none;
+}

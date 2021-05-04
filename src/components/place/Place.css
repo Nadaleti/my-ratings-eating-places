@@ -1,0 +1,38 @@
+h4,
+span {
+  color: #161616;
+}
+
+.Place_title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.Place_info {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: 8px;
+}
+
+.Place_info .Place_category {
+  font-size: 12px;
+  margin-right: 8px;
+  color: #949494;
+}
+
+.Place_info .Place_divider {
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  background-color: #949494;
+}
+
+.Place_info .Place_cost-info {
+  margin-left: 8px;
+}
+
+.Place_info .Place_cost-info svg {
+  height: 9px;
+  width: 8px;
+}
