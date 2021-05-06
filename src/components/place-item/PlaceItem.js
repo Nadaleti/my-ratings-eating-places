@@ -1,9 +1,9 @@
 import React from "react";
 import { FaDollarSign } from "react-icons/fa";
 
-import "./Place.css";
+import "./PlaceItem.css";
 
-const Place = (props) => {
+const PlaceItem = (props) => {
   const getCapitalized = (value) => {
     return value[0].toUpperCase() + value.slice(1).toLowerCase();
   };
@@ -20,14 +20,14 @@ const Place = (props) => {
 
   return (
     <>
-      <h4 className="Place_title">{props.name}</h4>
-      <div className="Place_info">
-        <span className="Place_category">{getCapitalized(props.category)}</span>
-        <span className="Place_divider"></span>
-        <div className="Place_cost-info">{getCostIcons()}</div>
+      <h4 className="PlaceItem_title">{props.name}</h4>
+      <div className="PlaceItem_info">
+        <span className="PlaceItem_category">{getCapitalized(props.category)}</span>
+        <span className="PlaceItem_divider"></span>
+        <div className="PlaceItem_cost-info">{getCostIcons()}</div>
       </div>
     </>
   );
 };
 
-export default Place;
+export default PlaceItem;

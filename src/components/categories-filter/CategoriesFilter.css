@@ -1,0 +1,18 @@
+.CategoriesFilter_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: teal;
+  z-index: 101;
+  width: 70%;
+  height: 100vh;
+  transition: transform 0.3s ease-out;
+}
+
+.CategoriesFilter_open {
+  transform: translateX(0);
+}
+
+.CategoriesFilter_close {
+  transform: translateX(100%);
+}

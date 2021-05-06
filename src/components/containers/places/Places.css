@@ -1,0 +1,10 @@
+.Places_header {
+  width: 100%;
+}
+
+.Places_content {
+  width: 100%;
+  height: calc(100vh - 50px);
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
