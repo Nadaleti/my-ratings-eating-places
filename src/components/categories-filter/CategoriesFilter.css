@@ -2,17 +2,43 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: teal;
   z-index: 101;
   width: 70%;
   height: 100vh;
-  transition: transform 0.3s ease-out;
+  background-color: white;
+  transition: all 0.2s ease-out;
+}
+
+.CategoriesFilter_item {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 5px 15px;
+  border-bottom: 1px solid #dddddd;
+  color:#303030;
+  transition: color 0.1s ease-out;
+}
+
+.CategoriesFilter_item:hover {
+  transition: color 0.1s ease-out;
+  color: #009bd6;
+}
+
+.CategoriesFilter_item span {
+  color: inherit;
+  margin: 0 5px;
+}
+
+.CategoriesFilter_item span:last-child {
+  font-size: .8rem;
 }
 
 .CategoriesFilter_open {
-  transform: translateX(0);
+  opacity: 1;
 }
 
 .CategoriesFilter_close {
-  transform: translateX(100%);
+  transition: all 0.2s ease-out;
+  opacity: 0;
+  visibility: hidden;
 }

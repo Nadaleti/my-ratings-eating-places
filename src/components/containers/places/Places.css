@@ -1,10 +1,38 @@
 .Places_header {
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  background-color: white;
+}
+
+.Places_header .Places_selectedCategory {
+  display: flex;
+  align-items: center;
+  background-color: #009bd6;
+  color: white;
+  font-size: .8rem;
+  padding: .3rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.Places_header .Places_selectedCategory .Places_closeIcon {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  margin-left: .2rem;
 }
 
 .Places_content {
-  width: 100%;
-  height: calc(100vh - 50px);
+  width: 100vw;
+  max-width: 100vw;
+  height: calc(100vh - 80px);
   box-sizing: border-box;
   overflow-y: scroll;
+}
+
+.Places_filter {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  height: 40px;
 }
