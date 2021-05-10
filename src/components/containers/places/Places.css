@@ -9,9 +9,11 @@
   align-items: center;
   background-color: #009bd6;
   color: white;
+  height: 25px;
   font-size: .8rem;
-  padding: .3rem;
-  border-radius: 6px;
+  padding: .3rem .3rem .3rem .6rem;
+  box-sizing: border-box;
+  border-radius: 15px;
   cursor: pointer;
 }
 
@@ -30,9 +32,37 @@
   overflow-y: scroll;
 }
 
+.Places_categoriesButton {
+  border: 1px solid #949494;
+  border-radius: 15px;
+  height: 25px;
+  width: 100px;
+  color: #949494;
+  font-size: .8rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .2s ease-in-out;
+}
+
+.Places_categoriesButton:hover {
+  background-color: #009bd6;
+  border-color: #009bd6;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+.Places_categoriesButton .Places_filterIcon {
+  font-size: 1.1rem;
+}
+
 .Places_filter {
   display: flex;
   align-items: center;
   padding: 0 25px;
   height: 40px;
+  box-sizing: border-box;
 }

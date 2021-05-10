@@ -1,17 +1,25 @@
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import PlaceItem from "../place-item/PlaceItem";
 
 import "./PlaceList.css";
 
 const PlaceList = (props) => {
+  const history = useHistory();
+
   const getListItem = (place) => {
     return (
-      <div className="PlaceList_item">
+      <div className="PlaceList_item" onClick={() => selectPlace(place)}>
         <PlaceItem name={place.name} category={place.category} cost={place.cost} />
       </div>
     );
   };
+
+  const selectPlace = (place) => {
+    const placePathName = place.name.split(' ').join('-').toLowerCase() + '-' + place.id;
+    history.push(`/${placePathName}`, place);
+  }
 
   return props.places.map((place) => getListItem(place));
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BiFilter } from "react-icons/bi";
 import { FaHamburger, FaHotdog } from "react-icons/fa";
 import { IoBeer, IoPizza, IoCloseCircleSharp } from "react-icons/io5";
 import { GiCoffeeBeans } from "react-icons/gi";
@@ -37,7 +38,10 @@ const Places = () => {
               {categoryNameMapper(category)}
               <span className="Places_closeIcon"><IoCloseCircleSharp /></span>
             </div> :
-            <button onClick={() => setOpened(true)}>Categorias</button>
+            <button className="Places_categoriesButton" onClick={() => setOpened(true)}>
+              Categorias
+              <BiFilter className="Places_filterIcon" />
+            </button>
         }
       </div>
       <CategoriesFilter
@@ -49,94 +53,60 @@ const Places = () => {
       <PlaceList
         places={[
           {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 3,
-            category: "PASTELARIA",
-          },
-          {
-            name: "Pastelaria do Matheus",
-            cost: 1,
-            category: "PASTELARIA",
-          },
-          {
+            id: "4d8bMiQ7ugmsgEo",
             name: "Pastelaria do Matheus",
             cost: 2,
             category: "PASTELARIA",
+            adresses: [{
+              city: "Itu",
+              neighborhood: "Jardim Aeroporto I",
+              number: 86,
+              street: "Rubens Palomio",
+              uf: "SP",
+              zipCode: "13304651"
+            }]
+          },
+          {
+            id: "4d8bMiQ7ugmsgEo",
+            name: "Pastelaria do Matheus",
+            cost: 2,
+            category: "PASTELARIA",
+            adresses: [{
+              city: "Itu",
+              neighborhood: "Jardim Aeroporto I",
+              number: 86,
+              street: "Rubens Palomio",
+              uf: "SP",
+              zipCode: "13304651"
+            }]
+          },
+          {
+            id: "4d8bMiQ7ugmsgEo",
+            name: "Pastelaria do Matheus",
+            cost: 2,
+            category: "PASTELARIA",
+            adresses: [{
+              city: "Itu",
+              neighborhood: "Jardim Aeroporto I",
+              number: 86,
+              street: "Rubens Palomio",
+              uf: "SP",
+              zipCode: "13304651"
+            }]
+          },
+          {
+            id: "4d8bMiQ7ugmsgEo",
+            name: "Pastelaria do Matheus",
+            cost: 2,
+            category: "PASTELARIA",
+            adresses: [{
+              city: "Itu",
+              neighborhood: "Jardim Aeroporto I",
+              number: 86,
+              street: "Rubens Palomio",
+              uf: "SP",
+              zipCode: "13304651"
+            }]
           },
         ]}
       />
