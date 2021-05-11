@@ -25,6 +25,12 @@
   cursor: pointer;
 }
 
+.CategoriesFilter_selected {
+  color: white;
+  background-color: #009bd6;
+  font-weight: 600;
+}
+
 .CategoriesFilter_item span {
   color: inherit;
   margin: 0 5px;

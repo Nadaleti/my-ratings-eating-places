@@ -20,7 +20,10 @@ const CategoriesFilter = (props) => {
     <div className={filterClasses.join(" ")}>
       <Header title="Categorias" />
       {props.categories.map((category) => {
-        return <div className="CategoriesFilter_item" onClick={() => selectCategory(category.category)}>
+        const itemClasses = ["CategoriesFilter_item"];
+        if (props.selected === category.category) itemClasses.push("CategoriesFilter_selected");
+        
+        return <div className={itemClasses.join(" ")} onClick={() => selectCategory(category.category)}>
           <span>{category.icon}</span>
           <span>{categoryNameMapper(category.category)}</span>
         </div>
