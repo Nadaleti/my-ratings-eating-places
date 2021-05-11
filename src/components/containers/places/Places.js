@@ -12,8 +12,11 @@ import Header from "../../layout/header/Header";
 import PlaceList from "../../places-list/PlaceList";
 
 import "./Places.css";
+import Spinner from "../../layout/spinner/Spinner";
+import NoResults from "../../layout/no-result/NoResults";
 
 const Places = () => {
+  const [loading, setLoading] = useState(false);
   const [places, setPlaces] = useState([]);
   const [page, setPage] = useState(0);
   const [opened, setOpened] = useState(false);
@@ -21,12 +24,15 @@ const Places = () => {
 
   useEffect(() => {
     const params = { page };
+    setLoading(true);
     if (category) params['category'] = category;
 
     axios.get("/eating-places", { params })
       .then((response) => {
         console.log("Loaded eating places!");
         setPlaces((places) => {
+          setLoading(false);
+
           return page == 0 ?
             response.data.eatingPlaces :
             [...places, ...response.data.eatingPlaces]
@@ -48,6 +54,7 @@ const Places = () => {
   ];
 
   return (<>
+    <Spinner show={loading} />
     <header className="Places_header">
       <Header title="Restaurantes" />
       <div className="Places_filter">
@@ -69,7 +76,10 @@ const Places = () => {
         select={(category) => setCategory(category)} />
     </header>
     <main className="Places_content">
-      <PlaceList places={places} />
+      { places.length === 0 ?
+          <NoResults /> :
+          <PlaceList places={places} />
+      }
     </main>
   </>);
 }
