@@ -28,11 +28,11 @@ span {
   background-color: #949494;
 }
 
-.PlaceItem_info .PlaceItem_cost-info {
+.PlaceItem_info .PlaceItem_costInfo {
   margin-left: 8px;
 }
 
-.PlaceItem_info .PlaceItem_cost-info svg {
+.PlaceItem_info .PlaceItem_costInfo svg {
   height: 9px;
   width: 8px;
 }
