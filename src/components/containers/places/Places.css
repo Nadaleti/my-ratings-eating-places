@@ -29,8 +29,9 @@
   width: 100vw;
   max-width: 100vw;
   height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .Places_categoriesButton {

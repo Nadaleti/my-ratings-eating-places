@@ -18,7 +18,8 @@ import NoResults from "../../layout/no-result/NoResults";
 const Places = () => {
   const [loading, setLoading] = useState(false);
   const [places, setPlaces] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(false);
   const [opened, setOpened] = useState(false);
   const [category, setCategory] = useState(undefined);
 
@@ -30,10 +31,10 @@ const Places = () => {
     axios.get("/eating-places", { params })
       .then((response) => {
         console.log("Loaded eating places!");
+        setLoading(false);
+        setHasNextPage(response.data.hasNextPage);
         setPlaces((places) => {
-          setLoading(false);
-
-          return page == 0 ?
+          return page == 1 ?
             response.data.eatingPlaces :
             [...places, ...response.data.eatingPlaces]
         });
@@ -41,7 +42,7 @@ const Places = () => {
       .catch((err) => console.error(err));
   }, [category, page]);
 
-  useEffect(() => { setPage(0) }, [category]);
+  useEffect(() => { setPage(1) }, [category]);
 
   const categories = [
     { category: 'PIZZA', icon: <IoPizza /> },
@@ -54,7 +55,7 @@ const Places = () => {
   ];
 
   return (<>
-    <Spinner show={loading} />
+    <Spinner show={loading && page === 1} />
     <header className="Places_header">
       <Header title="Restaurantes" />
       <div className="Places_filter">
@@ -78,7 +79,10 @@ const Places = () => {
     <main className="Places_content">
       { places.length === 0 ?
           <NoResults /> :
-          <PlaceList places={places} />
+          <PlaceList
+            places={places}
+            addPage={() => setPage((page) => page + 1)}
+            hasNextPage={hasNextPage} />
       }
     </main>
   </>);

@@ -2,8 +2,9 @@
   margin: 0 25px;
   padding: 15px 0;
   border-bottom: 1px solid #dddddd;
+  box-sizing: border-box;
 }
 
-.PlaceList_item:last-child {
+.PlaceList_last {
   border-bottom: none;
 }
