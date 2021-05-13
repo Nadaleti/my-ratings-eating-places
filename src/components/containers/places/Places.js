@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiFilter } from "react-icons/bi";
-import { FaHamburger, FaHotdog } from "react-icons/fa";
+import { FaHamburger, FaHotdog, FaSadCry } from "react-icons/fa";
 import { IoBeer, IoPizza, IoCloseCircleSharp } from "react-icons/io5";
 import { GiCoffeeBeans } from "react-icons/gi";
 import { RiCake3Line, RiRestaurantFill } from "react-icons/ri";
@@ -39,7 +39,10 @@ const Places = () => {
             [...places, ...response.data.eatingPlaces]
         });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        setLoading(false);
+        console.error(err);
+      });
   }, [category, page]);
 
   useEffect(() => { setPage(1) }, [category]);
@@ -79,7 +82,7 @@ const Places = () => {
     <main className="Places_content">
       { places.length === 0 ?
           <NoResults
-            showSadIcon={true}
+            icon={(className) => <FaSadCry className={className} />}
             message="Nenhum resultado encontrado"
             subMessage="Tente novamente com outros filtros" /> :
           <PlaceList

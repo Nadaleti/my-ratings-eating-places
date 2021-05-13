@@ -1,12 +1,41 @@
-import React from "react";
-import { FaChevronLeft, FaDollarSign } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaChevronLeft, FaDollarSign, FaRegStar } from "react-icons/fa";
 
+import axios from "../../../axios";
+import NoResults from "../../layout/no-result/NoResults";
+import Spinner from "../../layout/spinner/Spinner";
 import { categoryNameMapper } from "../../../helpers/categoryNameMapper";
 
 import "./Place.css";
 
 const Place = (props) => {
+  const [loading, setLoading] = useState(false);
+  const [ratings, setRatings] = useState([]);
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const [page, setPage] = useState(1);
+  
   const place = props.location.state;
+
+  useEffect(() => {
+    const params = { page, filterBy: 'PLACE', filterValue: place.id };
+    setLoading(true);
+
+    axios.get("/ratings", { params })
+      .then((response) => {
+        console.log(`Loaded ratings for place ${place.id}!`);
+        setLoading(false);
+        setHasNextPage(response.data.hasNextPage);
+        setRatings((ratings) => {
+          return page == 1 ?
+            response.data.ratings :
+            [...ratings, ...response.data.ratings]
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.error(err);
+      });
+  }, []);
 
   const getCostIcons = () => {
     let costIcons = Array(place.cost).fill(<FaDollarSign color="009bd6" />);
@@ -16,6 +45,7 @@ const Place = (props) => {
   };
 
   return (<div className="Place_page">
+    <Spinner show={loading && page === 1} />
     <div className="Place_container Place_info" style={{borderColor: 'white'}}>
       <FaChevronLeft
         color="009bd6"
@@ -51,6 +81,14 @@ const Place = (props) => {
     </div>
     <div className="Place_container">
       <h3 className="Place_sectionTitle">Avaliações</h3>
+      {
+        ratings.length === 0 ?
+          <NoResults
+            icon={(className) => <FaRegStar className={className} /> }
+            subMessage="Nenhuma avaliação encontrada" /> :
+          // TODO: Crirar ratings list
+          ratings.map((rating) => rating.name)
+      }
     </div>
   </div>);
 }
