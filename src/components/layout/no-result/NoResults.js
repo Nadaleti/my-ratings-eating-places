@@ -3,12 +3,12 @@ import { FaSadCry } from 'react-icons/fa';
 
 import "./NoResults.css";
 
-const NoResults = () => {
+const NoResults = (props) => {
   return (
     <div className="NoResults_container">
-      <FaSadCry className="NoResults_icon" />
-      <h3>Nenhum resultado encontrado</h3>
-      <span>Tente novamente com outros filtros</span>
+      { props.showSadIcon ? <FaSadCry className="NoResults_icon" /> : null }
+      <h3>{ props.message }</h3>
+      <span>{ props.subMessage }</span>
     </div>
   )
 }

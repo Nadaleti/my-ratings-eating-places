@@ -78,7 +78,10 @@ const Places = () => {
     </header>
     <main className="Places_content">
       { places.length === 0 ?
-          <NoResults /> :
+          <NoResults
+            showSadIcon={true}
+            message="Nenhum resultado encontrado"
+            subMessage="Tente novamente com outros filtros" /> :
           <PlaceList
             places={places}
             addPage={() => setPage((page) => page + 1)}
